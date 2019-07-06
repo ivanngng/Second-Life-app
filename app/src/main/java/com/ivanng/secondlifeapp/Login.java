@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -21,6 +22,7 @@ public class Login extends AppCompatActivity {
     private Button confirm_login;
     private EditText login_email, login_password;
     private FirebaseAuth firebaseAuth;
+    private ImageView facebook;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,13 +32,24 @@ public class Login extends AppCompatActivity {
         btnLogin = findViewById(R.id.btnLogin);
         btnSignup = findViewById(R.id.btnSignup);
 
+        facebook = findViewById(R.id.facebook);
+
         confirm_login = findViewById(R.id.btn_confirmlogin);
         login_email = findViewById(R.id.login_email);
         login_password = findViewById(R.id.login_password);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
+
         btnSignup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Login.this, SignUp.class);
+                startActivity(intent);
+            }
+        });
+
+        facebook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Login.this, SignUp.class);
@@ -88,8 +101,6 @@ public class Login extends AppCompatActivity {
 
                             }
                         });
-
-
 
             }
         });
