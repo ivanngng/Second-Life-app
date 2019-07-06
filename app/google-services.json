@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "873379376965",
+    "firebase_url": "https://second-life-app.firebaseio.com",
+    "project_id": "second-life-app",
+    "storage_bucket": "second-life-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:873379376965:android:42df3cf2afa7d126",
+        "android_client_info": {
+          "package_name": "com.ivanng.secondlifeapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "873379376965-lq0ecbi96irvjlecggnr8vjl0p120259.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ivanng.secondlifeapp",
+            "certificate_hash": "7e222480783c0e13ccd883b980e95dd36d99456e"
+          }
+        },
+        {
+          "client_id": "873379376965-6kmo9fjpsopgitt26t5pvv6e001pekej.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsMAfBBoom1KVsEBwOB_Tyi9FbqAulJ00"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "873379376965-6kmo9fjpsopgitt26t5pvv6e001pekej.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
