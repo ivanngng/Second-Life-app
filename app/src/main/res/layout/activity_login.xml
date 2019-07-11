@@ -13,7 +13,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="484dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -50,7 +51,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btnLogin"
         app:layout_constraintVertical_bias="0.053" />
 
-    <ImageView
+    <Button
         android:id="@+id/facebook"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -66,9 +67,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnSignup"
         app:layout_constraintVertical_bias="0.05"
-        app:srcCompat="@mipmap/facebook" />
+        android:background="@mipmap/facebook" />
 
-    <ImageView
+    <Button
         android:id="@+id/google"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -84,9 +85,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/facebook"
         app:layout_constraintVertical_bias="0.021"
-        app:srcCompat="@mipmap/google" />
+        android:background="@mipmap/google" />
 
-    <ImageView
+    <Button
         android:id="@+id/twitter"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -102,7 +103,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/google"
         app:layout_constraintVertical_bias="0.031"
-        app:srcCompat="@mipmap/twitter" />
+        android:background="@mipmap/twitter" />
 
     <TextView
         android:id="@+id/logo"
@@ -216,17 +217,17 @@
         android:id="@+id/ForgotPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:text="ForgotPassword?"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.39"
+        app:layout_constraintHorizontal_bias="0.41"
         app:layout_constraintStart_toEndOf="@+id/google"
         app:layout_constraintTop_toBottomOf="@+id/login_password"
-        app:layout_constraintVertical_bias="0.152" />
+        app:layout_constraintVertical_bias="0.491" />
 
     <Button
         android:id="@+id/btn_confirmlogin"
