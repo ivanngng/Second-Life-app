@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/icon_ruond"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".Login" />
         <activity android:name=".SignUp" />
         <activity android:name=".LoadingPage"
@@ -23,6 +24,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".LikesAcitivity"></activity>
+        <activity android:name=".ProfileAcitivity"></activity>
+        <activity android:name=".SearchAcitivity"></activity>
+        <activity android:name=".ShareAcitivity"></activity>
     </application>
 
 </manifest>
