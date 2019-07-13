@@ -17,7 +17,7 @@
         <activity android:name=".LoadingPage"
             android:theme="@style/SplashTheme"/>
         <activity
-            android:name=".HomeActivity">
+            android:name=".Home.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,10 +25,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".LikesAcitivity"></activity>
-        <activity android:name=".ProfileAcitivity"></activity>
-        <activity android:name=".SearchAcitivity"></activity>
-        <activity android:name=".ShareAcitivity"></activity>
+        <activity android:name=".Likes.LikesAcitivity"></activity>
+        <activity android:name=".Profile.ProfileAcitivity"></activity>
+        <activity android:name=".Search.SearchAcitivity"></activity>
+        <activity android:name=".Share.ShareAcitivity"></activity>
     </application>
 
 </manifest>

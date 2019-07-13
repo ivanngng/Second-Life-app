@@ -1,4 +1,4 @@
-package com.ivanng.secondlifeapp;
+package com.ivanng.secondlifeapp.Profile;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -9,13 +9,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+import com.ivanng.secondlifeapp.R;
 import com.ivanng.secondlifeapp.Utils.BottomNavigationViewHelper;
 
-public class ShareAcitivity extends AppCompatActivity {
-    private static final String TAG = "ShareActivity";
-    private static final int ACTIVITY_NUM = 2;
+public class ProfileAcitivity extends AppCompatActivity {
+    private static final String TAG = "ProfileActivity";
+    private static final int ACTIVITY_NUM = 4;
 
-    private Context mContext = ShareAcitivity.this;
+    private Context mContext = ProfileAcitivity.this;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
