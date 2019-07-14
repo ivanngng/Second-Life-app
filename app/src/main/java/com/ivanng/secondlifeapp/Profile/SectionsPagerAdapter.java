@@ -1,4 +1,4 @@
-package com.ivanng.secondlifeapp.Home;
+package com.ivanng.secondlifeapp.Profile;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -9,7 +9,7 @@ import java.util.List;
 
 public class SectionsPagerAdapter extends FragmentPagerAdapter  {
 
-    private static final String TAG = "SectionsPagerAdapter";
+    private static final String TAG = "SectionsStatePagerAdapter";
 
     private final List<Fragment> mFragmentList = new ArrayList<>();
 

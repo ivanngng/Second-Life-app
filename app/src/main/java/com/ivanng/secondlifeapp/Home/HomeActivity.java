@@ -11,6 +11,7 @@ import android.view.MenuItem;
 
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+import com.ivanng.secondlifeapp.Profile.SectionsPagerAdapter;
 import com.ivanng.secondlifeapp.R;
 import com.ivanng.secondlifeapp.Utils.BottomNavigationViewHelper;
 
