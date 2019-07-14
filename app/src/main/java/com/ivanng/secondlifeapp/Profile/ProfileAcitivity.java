@@ -25,6 +25,8 @@ import java.util.ArrayList;
 public class ProfileAcitivity extends AppCompatActivity {
     private static final String TAG = "ProfileActivity";
     private static final int ACTIVITY_NUM = 4;
+    private static final int NUM_GRID_COLUMNS = 3;
+
 
     private Context mContext = ProfileAcitivity.this;
 
@@ -68,6 +70,10 @@ public class ProfileAcitivity extends AppCompatActivity {
 
     private void setupImageGrid(ArrayList<String> imgURLs){
         GridView gridView = (GridView) findViewById(R.id.gridView);
+
+        int gridWidth = getResources().getDisplayMetrics().widthPixels;
+        int imageWidth = gridWidth/NUM_GRID_COLUMNS;
+        gridView.setColumnWidth(imageWidth);
 
         GridImageAdapter adapter = new GridImageAdapter(mContext, R.layout.layout_grid_imageview, "", imgURLs);
         gridView.setAdapter(adapter);
