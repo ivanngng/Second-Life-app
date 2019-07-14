@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/signup"
-    tools:context=".Login.SignUp">
+    tools:context=".Login.RegisterActivity">
 
     <Button
         android:id="@+id/btnLogin"

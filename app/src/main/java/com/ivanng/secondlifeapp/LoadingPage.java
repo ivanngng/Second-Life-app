@@ -5,7 +5,7 @@ import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.ivanng.secondlifeapp.Login.Login;
+import com.ivanng.secondlifeapp.Login.LoginActivity;
 
 public class LoadingPage extends AppCompatActivity {
 
@@ -15,7 +15,7 @@ public class LoadingPage extends AppCompatActivity {
         setContentView(R.layout.activity_loading_page);
 
         SystemClock.sleep(2000);
-        Intent loadingIntent = new Intent(LoadingPage.this, Login.class);
+        Intent loadingIntent = new Intent(LoadingPage.this, LoginActivity.class);
         startActivity(loadingIntent);
         finish();
     }
