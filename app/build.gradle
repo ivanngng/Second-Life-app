@@ -29,18 +29,25 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
     //firebase library
     implementation 'com.google.firebase:firebase-core:16.0.6'
     implementation 'com.google.firebase:firebase-auth:16.1.0'
     implementation 'com.firebaseui:firebase-ui-auth:4.3.1'
+
     //facebook library
     implementation 'com.facebook.android:facebook-login:[5,6)'
     implementation 'com.firebaseui:firebase-ui-auth:4.3.1'
     implementation 'com.facebook.android:facebook-android-sdk:4.42.0'
+
     //BottomnavigationView library
     implementation 'com.github.ittianyu:BottomNavigationViewEx:2.0.4'
+
     //Circle ImageView
     implementation 'de.hdodenhof:circleimageview:3.0.0'
+
+    //Universal Image Loader
+    implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
 
 
 
