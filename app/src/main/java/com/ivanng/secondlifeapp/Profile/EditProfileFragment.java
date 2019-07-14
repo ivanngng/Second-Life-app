@@ -27,17 +27,23 @@ public class EditProfileFragment extends Fragment {
 
         mProfilePhoto = (ImageView) view.findViewById(R.id.profile_photo);
 
-        initImageLoader();
 
         setProfileImage();
+
+        //back arrow for navigating back to "ProfileActivity"
+        ImageView backArrow = (ImageView) view.findViewById(R.id.backArrow);
+        backArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG, "onClick: navigating back to ProfileActivity");
+                getActivity().finish();
+            }
+        });
 
         return view;
     }
 
-    private void initImageLoader(){
-        UniversalImageLoader universalImageLoader = new UniversalImageLoader(getActivity());
-        ImageLoader.getInstance().init(universalImageLoader.getConfig());
-    }
+
 
     private void setProfileImage(){
         Log.d(TAG, "setProfileImage: setting profile image.");

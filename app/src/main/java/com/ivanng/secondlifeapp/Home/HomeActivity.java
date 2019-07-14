@@ -14,6 +14,8 @@ import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.ivanng.secondlifeapp.Profile.SectionsPagerAdapter;
 import com.ivanng.secondlifeapp.R;
 import com.ivanng.secondlifeapp.Utils.BottomNavigationViewHelper;
+import com.ivanng.secondlifeapp.Utils.UniversalImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 
 public class HomeActivity extends AppCompatActivity {
@@ -32,6 +34,12 @@ public class HomeActivity extends AppCompatActivity {
 
         setupBottomNavigationView();
         setupViewPager();
+        initImageLoader();
+    }
+
+    private void initImageLoader(){
+        UniversalImageLoader universalImageLoader = new UniversalImageLoader(mContext);
+        ImageLoader.getInstance().init(universalImageLoader.getConfig());
     }
 
     private void setupViewPager(){
