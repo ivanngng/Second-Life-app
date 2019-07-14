@@ -39,6 +39,8 @@ dependencies {
     implementation 'com.facebook.android:facebook-android-sdk:4.42.0'
     //BottomnavigationView library
     implementation 'com.github.ittianyu:BottomNavigationViewEx:2.0.4'
+    //Circle ImageView
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
 
 
 
