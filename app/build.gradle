@@ -35,6 +35,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:16.1.0'
     implementation 'com.firebaseui:firebase-ui-auth:4.3.1'
 
+    implementation 'com.google.firebase:firebase-database:16.0.4'
+
     //facebook library
     implementation 'com.facebook.android:facebook-login:[5,6)'
     implementation 'com.firebaseui:firebase-ui-auth:4.3.1'
@@ -48,7 +50,6 @@ dependencies {
 
     //Universal Image Loader
     implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
-
 
 
 }

@@ -12,12 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".Home.HomeActivity" />
+        <activity android:name=".Login.LoginActivity" />
         <activity android:name=".Login.RegisterActivity" />
         <activity android:name=".LoadingPage"
             android:theme="@style/SplashTheme"/>
         <activity
-            android:name=".Login.LoginActivity">
+            android:name=".Home.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

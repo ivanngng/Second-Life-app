@@ -1,15 +1,22 @@
 package com.ivanng.secondlifeapp.Utils;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.firebase.ui.auth.data.model.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.ivanng.secondlifeapp.Login.LoginActivity;
 import com.ivanng.secondlifeapp.R;
+
+import static com.ivanng.secondlifeapp.models.User.user;
+
 
 public class FirebaseMethods {
 
@@ -30,6 +37,27 @@ public class FirebaseMethods {
             userID = mAuth.getCurrentUser().getUid();
         }
     }
+
+    //defug
+    @SuppressLint("RestrictedApi")
+    public boolean checkIfUsernameExists(String username, DataSnapshot datasnapshot){
+        Log.d(TAG, "checkIfUsernameExists: checking if " + username + " already exists.");
+
+
+        for (DataSnapshot ds: datasnapshot.getChildren()){
+            Log.d(TAG, "checkIfUsernameExists: datasnapshot: " + ds);
+
+            user.setUsername(ds.getValue(User.class).getUsername());
+            Log.d(TAG, "checkIfUsernameExists: username: " + user.getUsername());
+
+            if(StringManipulation.expandUsername(user.getUsername()).equals(username)){
+                Log.d(TAG, "checkIfUsernameExists: FOUND A MATCH: " + user.getUsername());
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     /**
      * Register a new email and password to Firebase Authentication
