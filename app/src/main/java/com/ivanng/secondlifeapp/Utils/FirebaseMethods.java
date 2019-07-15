@@ -39,7 +39,7 @@ public class FirebaseMethods {
     }
 
     //defug
-    @SuppressLint("RestrictedApi")
+//    @SuppressLint("RestrictedApi")
     public boolean checkIfUsernameExists(String username, DataSnapshot datasnapshot){
         Log.d(TAG, "checkIfUsernameExists: checking if " + username + " already exists.");
 
