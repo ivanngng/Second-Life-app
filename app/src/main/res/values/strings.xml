@@ -24,5 +24,7 @@
     <string name="auth_failed">Failed to Authenticate</string>
     <string name="auth_success">Authentication Success</string>
 
+    <string name="profile_fragment">Profile</string>
+
 
 </resources>
