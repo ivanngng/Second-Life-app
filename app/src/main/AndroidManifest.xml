@@ -3,6 +3,9 @@
     package="com.ivanng.secondlifeapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -12,12 +15,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".Home.HomeActivity" />
+        <activity android:name=".Login.LoginActivity" />
         <activity android:name=".Login.RegisterActivity" />
         <activity android:name=".LoadingPage"
             android:theme="@style/SplashTheme"/>
         <activity
-            android:name=".Login.LoginActivity">
+            android:name=".Home.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,6 +33,8 @@
         <activity android:name=".Search.SearchAcitivity"></activity>
         <activity android:name=".Share.ShareAcitivity"></activity>
         <activity android:name=".Profile.AccountSettingsActivity"></activity>
+        <activity android:name=".Share.NextActivity"/>
+
     </application>
 
 </manifest>
