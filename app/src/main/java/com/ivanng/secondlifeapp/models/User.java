@@ -2,33 +2,47 @@ package com.ivanng.secondlifeapp.models;
 
 
 public class User {
+    public static final User user = new User();
 
-    private String id;
+    private String user_id;
+    private long phone_number;
+    private String email;
     private String username;
-    private String imageURL;
-    private String status;
-    private String search;
 
-
-    public User(String id, String username, String imageURL, String status ,String search) {
-        this.id= id;
+    public User(String user_id, long phone_number, String email, String username) {
+        this.user_id = user_id;
+        this.phone_number = phone_number;
+        this.email = email;
         this.username = username;
-        this.imageURL = imageURL;
-        this.status = status;
-        this.search = search;
+    }
+
+    public User() {
 
     }
 
-    public  User() {
 
+    public String getUser_id() {
+        return user_id;
     }
 
-    public String getId() {
-        return id;
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public long getPhone_number() {
+        return phone_number;
+    }
+
+    public void setPhone_number(long phone_number) {
+        this.phone_number = phone_number;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getUsername() {
@@ -39,27 +53,14 @@ public class User {
         this.username = username;
     }
 
-    public String getImageURL() {
-        return imageURL;
-    }
 
-    public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getSearch() {
-        return search;
-    }
-
-    public void setSearch(String search) {
-        this.search = search;
+    @Override
+    public String toString() {
+        return "User{" +
+                "user_id='" + user_id + '\'' +
+                ", phone_number='" + phone_number + '\'' +
+                ", email='" + email + '\'' +
+                ", username='" + username + '\'' +
+                '}';
     }
 }

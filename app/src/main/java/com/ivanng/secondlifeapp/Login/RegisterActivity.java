@@ -39,11 +39,19 @@ public class RegisterActivity extends AppCompatActivity {
     private Button btnLogin, confirmsignup;
     private FirebaseAuth mAuth;
     private DatabaseReference reference;
+    private FirebaseMethods firebaseMethods;
+    private Context mContext;
+
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+        mContext = RegisterActivity.this;
+        firebaseMethods = new FirebaseMethods(mContext);
+
         Log.d(TAG, "onCreate: started.");
 
         mEmail = findViewById(R.id.signup_email);
@@ -84,13 +92,15 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
     }
-    private void register(final String username, String email, String password){
+    private void register(final String username, final String email, String password){
 
         mAuth.createUserWithEmailAndPassword(email,password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            firebaseMethods.addNewUser(email, username, "", "", "");
+
                             FirebaseUser firebaseUser = mAuth.getCurrentUser();
                             assert firebaseUser  != null;
                             String userid = firebaseUser.getUid();
@@ -103,6 +113,7 @@ public class RegisterActivity extends AppCompatActivity {
                             hashMap.put("imageURL", "default");
                             hashMap.put("status","offline");
                             hashMap.put("search", username.toLowerCase());
+
 
                             Toast.makeText(RegisterActivity.this, "Register success", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent();
