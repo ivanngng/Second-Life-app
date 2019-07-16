@@ -26,5 +26,11 @@
 
     <string name="profile_fragment">Profile</string>
 
+    <!-- Intent Extras -->
+    <string name="calling_activity">calling_activity</string>
+
+    <!-- activity names -->
+    <string name="profile_activity">Profile Activity</string>
+
 
 </resources>
