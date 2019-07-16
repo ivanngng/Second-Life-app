@@ -32,13 +32,9 @@ import com.ivanng.secondlifeapp.R;
 public class LoginActivity extends AppCompatActivity {
 
     private static final String TAG = "LoginActivity";
-
-    //firebase
     private FirebaseAuth mAuth;
-    private FirebaseAuth.AuthStateListener mAuthListener;
-    private Button btnSignup;
-    private Context mContext;
-    private EditText mEmail, mPassword;
+    private Button btnSignup, btn_confirmlogin;
+    private EditText email, password;
 
 
 
@@ -46,14 +42,20 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        mEmail = (EditText) findViewById(R.id.login_email);
-        mPassword = (EditText) findViewById(R.id.login_password);
-        mContext = LoginActivity.this;
+
+//        getSupportActionBar().setTitle("Login");
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        mAuth = FirebaseAuth.getInstance();
+
+        email = (EditText) findViewById(R.id.login_email);
+        password = (EditText) findViewById(R.id.login_password);
+        btn_confirmlogin = (Button)findViewById(R.id.btn_confirmlogin);
+        btnSignup = (Button) findViewById(R.id.btnLogin);
+
         Log.d(TAG, "onCreate: started.");
 
 
-        setupFirebaseAuth();
-        init();
 
         btnSignup = findViewById(R.id.btnSignup);
         btnSignup.setOnClickListener(new View.OnClickListener() {
@@ -65,105 +67,35 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-    }
-
-    private boolean isStringNull(String string){
-        Log.d(TAG, "isStringNull: checking string if null.");
-
-        if(string.equals("")){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
-
-	     /*
-	    ------------------------------------ Firebase ---------------------------------------------
-	     */
-
-    private void init(){
-
-        //initialize the button for logging in
-        Button btnLogin = (Button) findViewById(R.id.btn_confirmlogin);
-        btnLogin.setOnClickListener(new View.OnClickListener() {
+        btn_confirmlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "onClick: attempting to log in.");
+                String txt_email = email.getText().toString();
+                String txt_password = password.getText().toString();
 
-                String email = mEmail.getText().toString();
-                String password = mPassword.getText().toString();
+                if (TextUtils.isEmpty(txt_email) || TextUtils.isEmpty(txt_password)) {
+                    Toast.makeText(LoginActivity.this,"All fields are required",Toast.LENGTH_SHORT).show();
+                } else {
 
-                if(isStringNull(email) && isStringNull(password)){
-                    Toast.makeText(mContext, "You must fill out all the fields", Toast.LENGTH_SHORT).show();
-                }else{
-
-                    mAuth.signInWithEmailAndPassword(email, password)
-                            .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                    mAuth.signInWithEmailAndPassword(txt_email,txt_password)
+                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
-                                    Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
+                                    if (task.isSuccessful()) {
+                                        Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
+                                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                        startActivity(intent);
+                                        finish();
+                                    } else {
+                                        Toast.makeText(LoginActivity.this,"Authentication failed",Toast.LENGTH_SHORT).show();
 
-                                    // If sign in fails, display a message to the user. If sign in succeeds
-                                    // the auth state listener will be notified and logic to handle the
-                                    // signed in user can be handled in the listener.
-                                    if (!task.isSuccessful()) {
-                                        Log.w(TAG, "signInWithEmail:failed", task.getException());
-
-                                        Toast.makeText(LoginActivity.this, getString(R.string.auth_failed),
-                                                Toast.LENGTH_SHORT).show();
                                     }
-                                    else{
-                                        Log.d(TAG, "signInWithEmail: successful login");
-                                        Toast.makeText(LoginActivity.this, getString(R.string.auth_success),
-                                                Toast.LENGTH_SHORT).show();
-                                    }
-
-                                    // ...
                                 }
                             });
                 }
-
             }
         });
+
     }
 
-    /**
-     * Setup the firebase auth object
-     */
-    private void setupFirebaseAuth(){
-        Log.d(TAG, "setupFirebaseAuth: setting up firebase auth.");
-
-        mAuth = FirebaseAuth.getInstance();
-
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-
-                if (user != null) {
-                    // User is signed in
-                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-                } else {
-                    // User is signed out
-                    Log.d(TAG, "onAuthStateChanged:signed_out");
-                }
-                // ...
-            }
-        };
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        mAuth.addAuthStateListener(mAuthListener);
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        if (mAuthListener != null) {
-            mAuth.removeAuthStateListener(mAuthListener);
-        }
-    }
 }

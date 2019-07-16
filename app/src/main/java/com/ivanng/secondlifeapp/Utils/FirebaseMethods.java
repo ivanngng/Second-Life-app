@@ -15,7 +15,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.ivanng.secondlifeapp.Login.LoginActivity;
 import com.ivanng.secondlifeapp.R;
 
-import static com.ivanng.secondlifeapp.models.User.user;
+
 
 
 public class FirebaseMethods {
@@ -38,33 +38,8 @@ public class FirebaseMethods {
         }
     }
 
-    //defug
-//    @SuppressLint("RestrictedApi")
-    public boolean checkIfUsernameExists(String username, DataSnapshot datasnapshot){
-        Log.d(TAG, "checkIfUsernameExists: checking if " + username + " already exists.");
 
 
-        for (DataSnapshot ds: datasnapshot.getChildren()){
-            Log.d(TAG, "checkIfUsernameExists: datasnapshot: " + ds);
-
-            user.setUsername(ds.getValue(User.class).getUsername());
-            Log.d(TAG, "checkIfUsernameExists: username: " + user.getUsername());
-
-            if(StringManipulation.expandUsername(user.getUsername()).equals(username)){
-                Log.d(TAG, "checkIfUsernameExists: FOUND A MATCH: " + user.getUsername());
-                return true;
-            }
-        }
-        return false;
-    }
-
-
-    /**
-     * Register a new email and password to Firebase Authentication
-     * @param email
-     * @param password
-     * @param username
-     */
     public void registerNewEmail(final String email, String password, final String username){
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -72,9 +47,7 @@ public class FirebaseMethods {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         Log.d(TAG, "createUserWithEmail:onComplete:" + task.isSuccessful());
 
-                        // If sign in fails, display a message to the user. If sign in succeeds
-                        // the auth state listener will be notified and logic to handle the
-                        // signed in user can be handled in the listener.
+
                         if (!task.isSuccessful()) {
                             Toast.makeText(mContext, R.string.auth_failed,
                                     Toast.LENGTH_SHORT).show();
