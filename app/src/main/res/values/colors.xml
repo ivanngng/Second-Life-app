@@ -8,4 +8,7 @@
     <color name="white">#fff</color>
     <color name="black">#000</color>
     <color name="link_blue">#005ce6</color>
+
+    <color name="colorGreen">#4cab03</color>
+    <color name="colorWindow">?android:attr/windowBackground</color>
 </resources>

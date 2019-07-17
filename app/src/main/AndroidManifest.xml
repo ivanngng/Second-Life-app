@@ -4,8 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -15,26 +15,28 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".Login.LoginActivity" />
-        <activity android:name=".Login.RegisterActivity" />
-        <activity android:name=".LoadingPage"
-            android:theme="@style/SplashTheme"/>
-        <activity
-            android:name=".Home.HomeActivity">
+        <activity android:name=".StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".Likes.LikesAcitivity"></activity>
-        <activity android:name=".Profile.ProfileAcitivity"></activity>
-        <activity android:name=".Search.SearchAcitivity"></activity>
-        <activity android:name=".Share.ShareAcitivity"></activity>
-        <activity android:name=".Profile.AccountSettingsActivity"></activity>
-        <activity android:name=".Share.NextActivity"/>
-
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".PostActivity" />
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
+        <activity android:name=".CommentsActivity" />
+        <activity android:name=".OptionsActivity" />
+        <activity android:name=".EditProfileActivity" />
+        <activity android:name=".FollowersActivity" />
+        <activity android:name=".StoryActivity" />
+        <activity android:name=".AddStoryActivity"></activity>
     </application>
+
+
 
 </manifest>
